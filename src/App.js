@@ -6,14 +6,16 @@ import Carousel from './components/Carousel';
 import Footer from './components/Footer';
 
 function App() {
+  let categoria = Math.floor(Math.random() * dadosIniciais.categorias.length)
+  let video = Math.floor(Math.random() * dadosIniciais.categorias[categoria].videos.length)
   return (
     <div style={{ background: "#141414" }}>
       <Menu />
 
       <BannerMain
-        videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
-        url={dadosIniciais.categorias[0].videos[0].url}
-        videoDescription={"O que é Front-end? Trabalhando na área os termos HTML, CSS e JavaScript fazem parte da rotina das desenvolvedoras e desenvolvedores. Mas o que eles fazem, afinal? Descubra com a Vanessa!"}
+        videoTitle={dadosIniciais.categorias[categoria].videos[video].titulo}
+        url={dadosIniciais.categorias[categoria].videos[video].url}
+        videoDescription={dadosIniciais.categorias[categoria].videos[video].desc}
       />
 
       <Carousel

@@ -1,3 +1,8 @@
+## KrzyzaniakFlix
+Desenvolvido durante a imersão React da Alura
+
+Link do projeto, [acesse aqui](https://krzyzaniakflix.netlify.app/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
