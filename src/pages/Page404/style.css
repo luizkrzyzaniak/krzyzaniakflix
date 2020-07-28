@@ -1,0 +1,17 @@
+.img404{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - var(--bodyPaddingTop) - var(--bodyPaddingBottom));
+}
+
+.img404 img{
+    width: 500px;
+}
+
+.divButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
