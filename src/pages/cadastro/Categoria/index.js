@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/button';
+import useForm from '../../../hooks/useForm';
 
 function CadastroCategoria() {
   const valoresIniciais = {
@@ -10,32 +11,15 @@ function CadastroCategoria() {
     descricao: '',
     cor: '#000000',
   };
-  const [values, setValues] = useState(valoresIniciais);
+
+  const { handleChange, values, clearForm } = useForm(valoresIniciais);
+
   const [categorias, setcategorias] = useState([]);
 
-  function setValue(chave, valor) {
-    setValues({
-      ...values,
-      [chave]: valor,
-    });
-  }
-
-  // function handleChange(info) {
-  //     const { getAttribute, value} = info.target;
-  //     setValue(
-  //         getAttribute('name'),
-  //         value
-  //     );
-  // }
-  function handleChange(info) {
-    setValue(
-      info.target.getAttribute('name'),
-      info.target.value,
-    );
-  }
-
   useEffect(() => {
-    const URL = 'http://localhost:8080/categorias';
+    const URL = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://krzyzaniakflix.herokuapp.com/categorias';
     fetch(URL)
       .then(async (respServ) => {
         const resposta = await respServ.json();
@@ -57,7 +41,7 @@ function CadastroCategoria() {
           ...categorias,
           values,
         ]);
-        setValues(valoresIniciais);
+        clearForm();
       }}
       >
         <FormField
