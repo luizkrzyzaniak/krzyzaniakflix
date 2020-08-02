@@ -46,6 +46,7 @@ ContentAreaContainer.Category = styled.h1`
 `;
 
 ContentAreaContainer.Description = styled.p`
+    margin-left: 5px;
   @media (max-width: 800px) {
     display: none;
   }
@@ -58,6 +59,7 @@ ContentAreaContainer.Title = styled.h2`
   line-height: 1;
   margin-top: 0;
   margin-bottom: 32px;
+  margin-left: 5px;
 
   @media (max-width: 800px) {
     font-size: 32px;
@@ -100,7 +102,7 @@ export const BannerMainContainer = styled.section`
   }
 `;
 
-export const WatchButton = styled.button`
+export const WatchButton = styled.a`
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
   cursor: pointer;
@@ -113,12 +115,13 @@ export const WatchButton = styled.button`
   text-decoration: none;
   display: inline-block;
   border: 1px solid transparent;
-  color: var(--black);
-  background: var(--white);
-  border-color: var(--black);
+  color: var(--white);
+  background: var(--black);
+  border-color: var(--white);
   transition: opacity .3s;
   display: none;
   margin: 0 auto;
+  width: 100px;
   @media (max-width: 800px) {
     display: block;
   }

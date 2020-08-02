@@ -12,13 +12,13 @@ function Home() {
     <div style={{ background: "#141414" }}>
       <Menu />
 
-      <BannerMain
-        videoTitle={dadosIniciais.categorias[categoria].videos[video].titulo}
-        url={dadosIniciais.categorias[categoria].videos[video].url}
-        videoDescription={dadosIniciais.categorias[categoria].videos[video].desc}
-      />
+        <BannerMain
+          videoTitle={dadosIniciais.categorias[categoria].videos[video].titulo}
+          url={dadosIniciais.categorias[categoria].videos[video].url}
+          videoDescription={dadosIniciais.categorias[categoria].videos[video].desc}
+        />
 
-      <Carousel
+      <Carousel 
         ignoreFirstVideo
         category={dadosIniciais.categorias[0]}
       />

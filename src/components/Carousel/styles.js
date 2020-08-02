@@ -53,3 +53,14 @@ export const VideoCardGroupContainer = styled.section`
   margin-left: 5%;
   margin-bottom: 16px;
 `;
+
+export const TituloVideoCard = styled.div`
+  position: relative;
+  width: 290px;
+  margin-right:5px
+  z-index: 200;
+  text-align: center;
+  p{
+    color: var(--white);
+  }
+`;
