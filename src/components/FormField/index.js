@@ -7,7 +7,6 @@ const FormFieldWrapper = styled.div`
   textarea {
     min-height: 150px;
   }
-
   input[type="color"]{
     padding-left: 56px;
   }
@@ -63,11 +62,12 @@ const Input = styled.input`
 `;
 
 function FormField({
-  label, type, name, value, onChange,
+  label, type, name, value, onChange, suggestions,
 }) {
   const fielId = `id_${name}`;
   const tag = type === 'textarea' ? 'textarea' : 'input';
   const hasValue = Boolean(value.length);
+  const hasSuggestions = Boolean(suggestions.length);
   return (
     <FormFieldWrapper>
       <Label htmlFor={fielId}>
@@ -79,10 +79,25 @@ function FormField({
           value={value}
           hasValue={hasValue}
           onChange={onChange}
+          autoComplete={hasSuggestions ? 'off' : 'on'}
+          list={hasSuggestions ? `suggestionFor_${fielId}` : undefined}
         />
         <Label.text>
           {label}
         </Label.text>
+        {
+        hasSuggestions && (
+        <datalist id={`suggestionFor_${fielId}`}>
+          {
+              suggestions.map((suggestion) => (
+                <option value={suggestion} key={`suggestionFor_${fielId}_option${suggestion}`}>
+                  {suggestion}
+                </option>
+              ))
+            }
+        </datalist>
+        )
+        }
       </Label>
     </FormFieldWrapper>
   );
@@ -92,6 +107,7 @@ FormField.defaultProps = {
   type: 'text',
   value: '',
   onChange: () => {},
+  suggestions: [],
 };
 
 FormField.propTypes = {
@@ -100,6 +116,7 @@ FormField.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  suggestions: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default FormField;
